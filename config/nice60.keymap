@@ -15,6 +15,8 @@
 			label = "ZM_lin_vd_u";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
+			wait-ms = <10>;
+			tap-ms = <10>;
 			bindings
 				= <&macro_press &kp LCTRL &kp LGUI>
 				, <&macro_tap &kp UP>
@@ -25,6 +27,8 @@
 			label = "ZM_lin_vd_d";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
+			wait-ms = <10>;
+			tap-ms = <10>;
 			bindings
 				= <&macro_press &kp LCTRL &kp LGUI>
 				, <&macro_tap &kp DOWN>
@@ -35,6 +39,8 @@
 			label = "ZM_lin_vd_l";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
+			wait-ms = <10>;
+			tap-ms = <10>;
 			bindings
 				= <&macro_press &kp LCTRL &kp LGUI>
 				, <&macro_tap &kp LEFT>
@@ -45,6 +51,8 @@
 			label = "ZM_lin_vd_r";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
+			wait-ms = <10>;
+			tap-ms = <10>;
 			bindings
 				= <&macro_press &kp LCTRL &kp LGUI>
 				, <&macro_tap &kp RIGHT>
@@ -55,6 +63,8 @@
 			label = "ZM_alt_tab";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
+			wait-ms = <10>;
+			tap-ms = <10>;
 			bindings
 				= <&macro_press &kp LALT>
 				, <&macro_tap &kp TAB>
@@ -65,6 +75,8 @@
 			label = "ZM_new_tab";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
+			wait-ms = <10>;
+			tap-ms = <10>;
 			bindings
 				= <&macro_press &kp LCTRL>
 				, <&macro_tap &kp T>
@@ -75,6 +87,8 @@
 			label = "ZM_close_window";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
+			wait-ms = <10>;
+			tap-ms = <10>;
 			bindings
 				= <&macro_press &kp LCTRL>
 				, <&macro_tap &kp W>
