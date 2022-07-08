@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2021 Nick Winans
+ * Copyright (c) 2022 perillamint
  *
  * SPDX-License-Identifier: MIT
  */
@@ -97,6 +98,15 @@
 		};
 	};
 
+	conditional_layers {
+		compatible = "zmk,conditional-layers";
+
+		lock_toggle {
+			if-layers = <1 2>;
+			then-layer = <4>;
+		};
+	};
+
 	keymap {
 		compatible = "zmk,keymap";
 		
@@ -144,10 +154,33 @@
 // ------------------------------------------------------------------------------------------------
 			bindings = <
 	&bt BT_CLR   &kp F1    &kp F2    &kp F3  &kp F4           &kp F5          &kp F6          &kp F7             &kp F8       &kp F9     &kp F10  &kp F11 &kp F12  &rgb_ug RGB_EFR
-	&bt BT_SEL 0  &trans    &trans    &rgb_ug RGB_HUI  &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_SPI &kp C_PAUSE &kp C_VOL_UP &trans     &trans   &trans  &trans          &trans
+	&bt BT_SEL 0  &tog 3    &trans    &rgb_ug RGB_HUI  &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_SPI &kp C_PAUSE &kp C_VOL_UP &trans     &trans   &trans  &trans          &trans
 	&bt BT_SEL 1   &trans    &trans   &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_SPD   &kp C_PREV  &kp C_VOL_DN &kp C_NEXT &trans   &trans        &rgb_ug RGB_EFF
 	&bt BT_SEL 2    &trans    &trans    &trans   &trans          &trans          &trans          &trans              &kp C_MUTE   &trans     &trans                         &trans
 	&bt BT_SEL 3  &trans   &trans                            &rgb_ug RGB_TOG                                          &kp PSCRN          &trans        &trans               &trans
+			>;
+		};
+
+// Pseudo-shutdown layer to prevent accidental keypress while storing keyboard
+// in the backpack without enclosure.
+		lockdown_layer {
+			bindings = <
+	&none   &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none     &none      &none
+	&none    &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none     &none     &none
+	&none      &none  &none  &none  &none  &none  &none  &none  &none  &none  &none    &none           &none
+	&none       &none  &none  &none  &none  &none  &none  &none  &none     &none   &none               &none
+	&none     &none     &none                &none                         &none     &mo 1   &mo 2     &none
+			>;
+		};
+
+// To escape lockdown mode, use keycombo Fn + App + Q
+		lockdown_toggle {
+			bindings = <
+	&trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans    &trans     &trans
+	&trans   &tog 3 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans    &trans    &trans
+	&trans     &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans   &trans          &trans
+	&trans      &trans &trans &trans &trans &trans &trans &trans &trans    &trans  &trans              &trans
+	&trans    &trans    &trans               &trans                        &trans    &trans  &trans    &trans
 			>;
 		};
 	};
